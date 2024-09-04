@@ -1,7 +1,6 @@
 <div 
     hx-target="#car-list"
     hx-swap="outerHTML"
-    hx-include="#filter-form"
     class="rounded-xl border border-b-0 p-4">
     <div class="flex flex-col justify-between flex-1">
         <div class="flex justify-between">
@@ -9,10 +8,12 @@
                 Filter
             </h5>
 
-            <a class="cursor-pointer font-medium text-green-500 hover:underline">Clear</a>
+            <a hx-get="{% url "cars-list" %}"
+                hx-on::after-request="document.getElementById('filter-form').reset()"
+                class="cursor-pointer font-medium text-green-500 hover:underline">Clear</a>
         </div>
         <hr class="h-px my-6 bg-gray-200 border-0">
-        <form id="filter-form">
+        <form id="filter-form" hx-include="#filter-form">
             <div class="space-y-6">
                 <div class="space-y-2">
                     <h6 class="text-base font-medium text-black">
