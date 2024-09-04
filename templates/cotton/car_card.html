@@ -1,0 +1,57 @@
+{% load static %}
+<div class="bg-base-100 border rounded-xl p-6 mb-6">
+    
+    <div class="grid grid-cols-4 gap-x-4">
+
+        <div class="col-span-4 sm:col-span-2 md:col-span-1 h-full content-center">
+            <figure>
+                <img
+                    class="rounded-lg"
+                    src="https://newsroom.porsche.com/dam/jcr:d6df2119-ece2-446c-8222-863cf7ecf0ae/CZ25W01IX0010_GT-Silbermetallic_2.png"
+                    alt="Car" />
+            </figure>
+        </div>
+
+        <div class="col-span-4 mt-2 sm:mt-0 sm:col-span-2 md:col-span-3">
+
+           
+            <span class="bg-red-100 text-red-800 text-xs font-medium me-2 mb-2 px-2.5 py-0.5 rounded border border-red-400">
+                Top Pick
+            </span>
+
+            <h2 class="text-xl font-bold my-4">
+                {{ car.make }} {{ car.model }} 
+                <span class="text-sm font-normal">or similar</span>
+            </h2>
+            <div class="grid grid-cols-3">
+                <div class="col-span-3 md:col-span-1">
+                    <ul>
+                        <li>5 seats</li>
+                        <li>{{ car.year }}</li>
+                        <li class="flex items-center mt-2">
+                            <span class="inline-block w-6 h-6 me-2 text-sm font-semibold text-{{ car.color|lower }}-800 bg-{{ car.color|lower }}-100 border border-{{ car.color|lower }}-500 rounded-full">
+                            </span>
+                           {{ car.color }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-span-3 md:col-span-1">
+                    <ul>
+                        <li>{{ car.get_transmission_display }}</li>
+                    </ul>
+                </div>
+                <div class="col-span-3 md:col-span-1 text-left md:text-right mt-2 md:mt-0">
+                    <p>Price per day:</p>
+                    <p class="text-xl font-bold">£{{ car.price_per_day }}</p>
+                    <p class="text-green-500 mb-2">Free cancellation</p>
+                    <button type="button" class="px-10 py-2 text-sm font-medium text-center bg-green-500 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300">
+                        View Deal
+                    </button>
+
+                    <button class="btn btn-success btn-sm whitespace-nowrap w-full text-white">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

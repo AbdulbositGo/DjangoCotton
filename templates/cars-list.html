@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <h1 class="mb-2 text-4xl font-bold tracking-tight text-gray-900 mb-6">Noteworthy technology acquisitions 2021</h1>
+    <div class="grid grid-cols-4 gap-3">
+        <section class="hidden lg:grid lg:col-span-1">
+            <c-filter />
+        </section>
+        <section class="grid col-span-4 lg:col-span-3">
+            <c-car-list />
+            
+        </section>
+    </div>
+
+{% endblock content %}
