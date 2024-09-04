@@ -1,9 +1,11 @@
 
 <div id="car-list">
     {% if page_obj %}
-        <h2 class="text-2xl font-bold my-4">
-            {{ car_count }} car{{ car_count|pluralize }} abailable
-        </h2>
+        <div class="flex justify-between items-center">
+            <h2 class="text-2xl font-bold my-2">
+                {{ car_count }} car{{ car_count|pluralize }} abailable
+            </h2>
+        </div>
         
         {% for car in page_obj %}
         

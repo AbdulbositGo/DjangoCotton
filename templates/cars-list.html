@@ -2,31 +2,40 @@
 
 
 {% block content %}
-
-    <h1 class="mb-2 text-4xl font-bold tracking-tight text-gray-900 mb-6">
-        <div class="flex justify-start items-conter gap-2">
-            <div class="flex item-center items-center inline">
-                <a href="/" class="flex item-center items-center space-x-2">
+    <div class="flex justify-between items-conter mb-4">
+        <div class="flex justify-start items-conter gap-2 text-xl md:text-4xl font-bold">
+            <div class="flex item-center inline">
+                <a href="/" class="flex items-center space-x-2">
                     <div class="flex items-center">
                         <span class="text-yellow-900 text-opacity-50">&lt;</span>
-                        <svg class="w-8 h-8 text-teal-600" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="50" viewBox="0 0 512 512">
+                        <svg class="w-6 md:w-8 h-6 md:h-8 text-teal-600" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="50" viewBox="0 0 512 512">
                             <path d="M140.557 151.729a116.73 116.73 0 0 1-1.024-15.453C139.533 72.058 191.885 20 256.464 20s116.931 52.058 116.931 116.276c0 5.239-.348 10.397-1.024 15.453"></path>
                             <path d="M253.847 353.298c-52.476 15.633-111.688 2.84-153.139-38.378-42.621-42.382-55.019-103.436-37.196-156.681 53.546-17.723 114.944-5.395 157.565 36.987a157.008 157.008 0 0 1 5.382 5.625c12.443 13.674 21.96 29.044 28.553 45.312M256.464 354.511V492"></path>
                             <path d="M417.165 310.081c37.858-42.001 48.299-99.799 31.323-150.514-53.546-17.723-114.944-5.395-157.565 36.987a157.008 157.008 0 0 0-5.382 5.625c-38.259 42.045-48.863 100.123-31.814 151.056 24.52 8.116 50.686 9.93 75.941 5.442"></path>
                         </svg>
-                        <span class="text-opacity-50 font-bold text-2xl ml-1.5">cotton</span>
+                        <span class="text-opacity-50 font-bold ml-1.5">cotton</span>
                         <span class="text-yellow-900 text-opacity-50">/</span><span class="text-yellow-900 text-opacity-50">&gt;</span>
                     </div>
                 
                 </a>
             </div>
-        
-            <span > &amp; </span> 
-            <span >&lt;<span class="text-[#3d72d7]">/</span>&gt; <span class="no-mobile">htm<span class="text-[#3d72d7]">x</span></span></span>
+            <div class="flex items-center">
+
+            <span > &amp; </span>
         </div>
-    </h1>
+
+            <div class="flex items-center">
+                <span >&lt;<span class="text-[#3d72d7]">/</span>&gt; <span class="no-mobile">htm<span class="text-[#3d72d7]">x</span></span></span>
+            </div>
+        </div>
+        <button type="button" id="show-filter-btn" class="lg:hidden h-10 w-10 text-green-500 text-sm p-1.5 text-center inline-flex items-center">
+            <svg class="w-6 h-6 text-gray-800 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+            </svg>
+        </button>
+    </div>
     <div class="grid grid-cols-4 gap-3">
-        <section class="hidden lg:grid lg:col-span-1">
+        <section id="filters" class="hidden lg:grid lg:col-span-1">
             <c-filter />
         </section>
         <section class="grid col-span-4 lg:col-span-3">
@@ -34,5 +43,21 @@
             
         </section>
     </div>
-
+    <script>
+        let btn = document.getElementById('show-filter-btn');
+        btn.addEventListener('click', (e) => {
+            let filterSection = document.getElementById('filters');
+            if (filterSection.classList.contains('hidden')) {
+                filterSection.classList.remove('hidden');
+                filterSection.classList.add('grid');
+                filterSection.classList.add('col-span-4');
+                filterSection.classList.add('mb-4');
+            } else {
+                filterSection.classList.add('hidden');
+                filterSection.classList.remove('grid');            
+                filterSection.classList.remove('col-span-4');            
+                filterSection.classList.remove('mb-4');
+            }
+        });
+    </script>
 {% endblock content %}
